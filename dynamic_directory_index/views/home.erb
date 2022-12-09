@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= @title %></title>
+</head>
+
+<body>
+
+  <div id="layout">
+      <a href="#menu" id="menuLink" class="menu-link">
+          <span></span>
+      </a>
+
+      <div id="main">
+        <div class="header">
+          <h1>Directory Contents</h1>
+        </div>
+
+        <div class="content">
+          <h2 class="content-subhead">Contents</h2>
+          <ul>
+            <% @contents.each do |content| %>
+              <% file = File.basename(content) %> 
+              <li>
+                <a href=<%= file %>><%= file %></a>
+              </li> 
+            <% end %>
+          </ul>
+          <a href="?sort=desc">Sort descending</a>
+          <a href="?sort=asc">Sort ascending</a>
+        </div>
+      </div>
+  </div>
+</body>
+</html>

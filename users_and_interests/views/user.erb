@@ -1,0 +1,13 @@
+<h1>User Info for <%= params[:name] %></h1>
+<h4>Email</h4>
+  <p><%= @email%></p>
+<h4>Interests</h4>
+  <p><%= @interests.join(', ') %></p>
+<h4>Other Users</h4>
+  <ul>
+    <% @users_and_interests.keys.each do |user| %>
+      <% if user != params[:name].to_sym %>
+        <li><a href='/<%= user %>'><%= user %></a></li>
+      <% end %>
+    <% end %>
+  </ul>
